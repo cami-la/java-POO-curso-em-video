@@ -37,5 +37,20 @@ public abstract class Pessoa {
 		this.experiencia = experiencia;
 	}
 	
+	public Pessoa(String nome, int idade, String sexo) {
+		this.setNome(nome);
+		this.setIdade(idade);
+		this.setSexo(sexo);
+		this.setExperiencia(0);
+	}
+
+	@Override
+	public String toString() {
+		return "Pessoa [nome=" + this.getNome() + 
+				", idade=" + this.getIdade() + 
+				", sexo=" + this.getSexo() + 
+				", experiencia=" + this.getExperiencia() + "]";
+	}
+	
 	
 }

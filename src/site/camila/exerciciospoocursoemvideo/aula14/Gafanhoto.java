@@ -3,7 +3,13 @@ package site.camila.exerciciospoocursoemvideo.aula14;
 public class Gafanhoto extends Pessoa {
 	//atributos
 	private String login;
-	private boolean toAssistindo;
+	private int toAssistindo;
+		
+	public Gafanhoto(String nome, int idade, String sexo, String login) {
+		super(nome, idade, sexo);
+		this.setLogin(login);
+		this.setToAssistindo(0);
+	}	
 	
 	//métodos
 	public void viuMaisum() {
@@ -12,9 +18,6 @@ public class Gafanhoto extends Pessoa {
 	
 	@Override
 	public void ganharExeriencia() {
-		if (this.toAssistindo) {
-			
-		}
 		
 	}
 
@@ -26,13 +29,19 @@ public class Gafanhoto extends Pessoa {
 		this.login = login;
 	}
 
-	public boolean isToAssistindo() {
+	public int getToAssistindo() {
 		return toAssistindo;
 	}
 
-	public void setToAssistindo(boolean toAssistindo) {
+	public void setToAssistindo(int toAssistindo) {
 		this.toAssistindo = toAssistindo;
 	}
+
+	@Override
+	public String toString() {
+		return "Gafanhoto " + super.toString() + "\n[login=" + login + ", toAssistindo=" + toAssistindo + "]";
+	}
+	
 	
 	
 		

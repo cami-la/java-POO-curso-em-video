@@ -2,28 +2,21 @@ package site.camila.exerciciospoocursoemvideo.aula14;
 
 public class Video implements AcoesVideo {
 	private String titulo;
-	private String avaliacao;
+	private int avaliacao;
 	private int views;
 	private int curtidas;
 	private boolean reproduzindo;	
 	
 	@Override
 	public void play() {
-		if (this.getReproduzindo()) {
-			this.setReproduzindo(false);			
-		} else {
-			this.setReproduzindo(true);
-		}
-		
+		this.setReproduzindo(true);
 	}
+	
 	@Override
 	public void pause() {
-		if (this.getReproduzindo()) {
-			this.setReproduzindo(false);			
-		} else {
-			this.setReproduzindo(true);
-		}		
+		this.setReproduzindo(false);
 	}
+	
 	@Override
 	public void like() {
 		this.setCurtidas(this.getCurtidas() + 1);
@@ -31,6 +24,14 @@ public class Video implements AcoesVideo {
 	}
 	
 	//métodos especiais
+	public Video(String titulo) {
+		this.titulo = titulo;
+		this.avaliacao = 1;
+		this.views = 0;
+		this.curtidas = 0;
+		this.reproduzindo = false;
+	}
+	
 	public void setTitulo(String titulo) {
 		this.titulo = titulo;
 	}
@@ -39,11 +40,13 @@ public class Video implements AcoesVideo {
 		return this.titulo;
 	}
 	
-	public void setAvaliacao(String avaliacao) {
-		this.avaliacao = avaliacao;
+	public void setAvaliacao(int avaliacao) {
+		int nova;
+		nova = (int) ((this.avaliacao + avaliacao)/this.views);
+		this.avaliacao = nova;
 	}
 	
-	public String getAvaliacao() {
+	public int getAvaliacao() {
 		return this.avaliacao;
 	}
 	
@@ -70,5 +73,15 @@ public class Video implements AcoesVideo {
 	public boolean getReproduzindo() {
 		return this.reproduzindo;
 	}
+	@Override
+	public String toString() {
+		return "Video [titulo=" + this.getTitulo() + 
+				", avaliacao=" + this.getAvaliacao() + 
+				", views=" + this.getViews() + 
+				", curtidas=" + this.getCurtidas() + 
+				", reproduzindo=" + this.getReproduzindo() + "]";
+	}
+	
+	
 	
 }
